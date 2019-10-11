@@ -25,18 +25,35 @@
     3. Third-Party Application이 서로 충돌할 일 없게 다른 Schema를 사용하도록 함
 
 * PostgreSQL 사용 방법
-    * Database 목록 확인 => `\l` (소문자 L)
+    * PostgreSQL version 확인 => `select version()`
+
+    * User 목록 확인 => `\du`
+        * `\du+`는 상세 조회 (Description까지 출력)  
+
+    * User 생성 => `create role ${userName};`
+        * *ex)* `create role testuser;`  
+
+    * User 삭제 => `drop role ${userName};`
+        * *ex)* `drop role testuser;`  
+
+    * Database 목록 확인 => `\l` (소문자 L) or `\list`
+        * `\lt+` or `\list+`는 상세 조회  
+
     * 사용하는 Database 변경 => `\c`  
-        *ex)* `\c template1`
+        *ex)* `\c template1`  
+
     * Database 생성 => `create database ${databaseName}`  
-        *ex)* `create database leaf;`
-    * Schema 목록 확인 => `\dn`
-    * Schema 생성 => `create schema ${schemaName}` or `create schema ${schemaName} authorization ${userName}`
-        *ex)* `create schema board` or `create schema board authorization jh`
+        *ex)* `create database leaf;`  
+
+    * Schema 목록 확인 => `\dn`  
+
+    * Schema 생성 => `create schema ${schemaName}` or `create schema ${schemaName} authorization ${userName}`   
+        *ex)* `create schema board` or `create schema board authorization jh`  
+
     * Table 목록 확인 => `\dt`
         * `\dt` 명령어는 public schema에 속한 Table만 보여준다. 정확히는 search_path에 설정된 Schema를 사용한다.
-        * 특정 Schema에 속한 Table을 보려면 `\dt ${schemaName}.${tableName}`을 입력한다.  
-            *ex)* 특정 Schema의 특정 Table을 보려면`\dt board.boardTable`
+        * 특정 Schema에 속한 Table을 보려면 `\dt ${schemaName}.${tableName}`을 입력한다.   
+            *ex)* 특정 Schema의 특정 Table을 보려면`\dt board.boardTable`  
 
 * PostgreSQL의 Data Type
     * Numeric Types  
