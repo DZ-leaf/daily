@@ -38,6 +38,7 @@
 
     * Database 목록 확인 => `\l` (소문자 L) or `\list`
         * `\lt+` or `\list+`는 상세 조회  
+        * 전체 Database 목록 확인은 `SELECT datname FROM pg_database;`
 
     * 사용하는 Database 변경 => `\c`  
         *ex)* `\c template1`  
@@ -50,9 +51,12 @@
     * Schema 생성 => `create schema ${schemaName}` or `create schema ${schemaName} authorization ${userName}`   
         *ex)* `create schema board` or `create schema board authorization jh`  
 
+    * Schema 삭제 => `DROP SCHEMA ${schemaName} CASCADE`
+
     * Table 목록 확인 => `\dt`
         * `\dt` 명령어는 public schema에 속한 Table만 보여준다. 정확히는 search_path에 설정된 Schema를 사용한다.
-        * 특정 Schema에 속한 Table을 보려면 `\dt ${schemaName}.${tableName}`을 입력한다.   
+        * 특정 Schema에 속한 Table을 보려면 `\dt ${schemaName}.${tableName}`을 입력한다.  
+        * 또는 `SELECT table_name FROM information_schema.tables WHERE table_schema = '${schemaName}';`
             *ex)* 특정 Schema의 특정 Table을 보려면`\dt board.boardTable`  
 
 * PostgreSQL의 Data Type
