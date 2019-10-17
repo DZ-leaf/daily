@@ -62,9 +62,45 @@
         | Update | update users set city="busan" where name="lee" | db.users.update({ name: "lee" }, {$set:{ city: "busan" }}) |
         | Delete | delete from users where name="lee" | db.users.remove({ name: "lee" }) |
 
-7. 특징
+7. 사용법
+    * 단순히 mongoDB는 mongod(Server)를 실행하면 인증 과정없이 바로 사용이 가능
+    * 인증 및 인가 측면에서 굉장히 위험하므로 인증 및 인가에 대한 Rule이 필요
+    * 사용자를 추가한 후 사용자 외에는 접근이 불가능하도록 하는 방법이 있음
+    * Database
+    * Database User
+        | **Name** | **Description** |
+        |:--------:|:--------:|
+        | db.auth() | Database에 사용자 인증 |
+        | db.createUser() | Creates a new user |
+        | db.updateUser() | Updates user data |
+        | db.changeUserPassword() | 사용자 Password 변경 |
+        | db.dropAllUsers() | Database에 관련된 모든 사용자 삭제 |
+        | db.dropUser() | 한 사용자 삭제 |
+        | db.grantRolesToUser() | Role과 권한을 사용자에게 부여 |
+        | db.revokeRolesFromUser() | 사용자에게 부여한 Role 삭제 |
+        | db.getUser() | 지정한 사용자의 정보 반환 |
+        | db.getUsers() | Database에 관련된 모든 사용자의 정보 반환 |
+
+
+8. 특징
     * Schema-less => RDBMS처럼 고정 Schema가 존재하지 않다는 뜻
     * 같은 Collection 내에 있더라도 document level의 다른 Schema를 가질 수 있다는 의미
     * RDBMS와 같은 JOIN 연산이 없어 Table JOIN은 효과적이지 않지만(불가능하지는 않음) CRUD Query는 고속으로 동작함
     * MongoDB는 Schema를 디자인할 때 하나의 document에 최대한 많은 데이터를 포함시킴
     * Scalability(규모 가변성, 확장성)이 우수하며 Sharding(여러 개의 Database에 데이터를 분할하는 기술) 클러스터 구축도 가능함
+
+9.  MongoDB install in Centos7
+    * 사전 작업
+        * epel 저장소 추가
+    * 확인
+        * service mongod status => mongod: unrecognized service
+        * mongo --version => -bash: mongo: command not found
+    * 설치
+        * 서버(mongodb-server)만 설치해도 되지만, 클라이언트(mongodb)도 함께 설치
+        * yum install mongodb mongodb-server
+    * 서비스 시작
+        * service mongod status -> mongod is stopped
+        * service mongod start 또는 systemctl start mongod
+    * 설치 확인
+        * mongo --version => MongoDB shell version: 2.6.12
+        * netstat -ntlp | grep mongod => tcp        0      0 127.0.0.1:27017             0.0.0.0:*                   LISTEN      29813/mongod
