@@ -16,7 +16,7 @@
     3. Table
        * Schema 아래에 생성됨  
     <br>
-    <center><img src="./images/postgresql/postgresql_structure.PNG"></center>  
+    <center><img src="../images/postgresql/postgresql_structure.PNG"></center>  
     <br>
 
 * 그렇다면, Schema가 왜 존재하느냐?

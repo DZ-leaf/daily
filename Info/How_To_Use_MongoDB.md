@@ -11,7 +11,7 @@
    * JSON Object 형태의 한 개 이상의 key-value의 쌍으로 이루어진 데이터 구조로 구성
    * value에는 다른 document, array, document array가 포함될 수 있음  
        <br>
-       <center><img src="./images/mongodb/mongodb_document.PNG"></center>  
+       <center><img src="../images/mongodb/mongodb_document.PNG"></center>  
        <br>  
    * Document의 형태
       * 각 Document는 **_id**라는 고유한 값을 가짐
@@ -19,7 +19,7 @@
       * 값의 고유성 보장  
         *ex)* 
         <br>
-        <center><img src="./images/mongodb/document_form.PNG"></center>  
+        <center><img src="../images/mongodb/document_form.PNG"></center>  
         <br>  
 3. _id
    * 모든 MongoDB의 collection은 기본적으로 _id field에 index가 존재함
