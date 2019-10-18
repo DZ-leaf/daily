@@ -46,31 +46,31 @@
    
 - java파일 생성
 
-import java.sql.Connection;
-import java.sql.Statement;
+        import java.sql.Connection;
+        import java.sql.Statement;
 
-import javax.sql.DataSource;
+        import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.boot.ApplicationArguments;
+        import org.springframework.boot.ApplicationRunner;
+        import org.springframework.jdbc.core.JdbcTemplate;
+        import org.springframework.stereotype.Component;
 
-@Component
-public class Postgre implements ApplicationRunner {
+        @Component
+        public class Postgre implements ApplicationRunner {
 
-    @Autowired
-    DataSource dataSource;
+            @Autowired
+            DataSource dataSource;
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+            @Autowired
+            JdbcTemplate jdbcTemplate;
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        System.out.println
-        try(Connection connection = dataSource.getConnection()){
-            System.out.println
+            @Override
+            public void run(ApplicationArguments args) throws Exception {
+                System.out.println
+                try(Connection connection = dataSource.getConnection()){
+                    System.out.println
             System.out.println(connection);
             String URL = connection.getMetaData().getURL();
             System.out.println(URL);
@@ -88,8 +88,8 @@ public class Postgre implements ApplicationRunner {
 
         jdbcTemplate.execute("INSERT INTO ACCOUNT VALUES(2, 'asd')");
         // 위 코드도 간단한 예제
-    }
-}
+                }
+        }
 
                 
 
