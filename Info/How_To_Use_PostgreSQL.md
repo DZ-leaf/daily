@@ -62,17 +62,17 @@
 * PostgreSQL의 Data Type
     * Numeric Types  
         <br>
-        <center><img src="./images/postgresql/numeric_types.PNG"></center>  
+        <center><img src="../images/postgresql/numeric_types.PNG"></center>  
         <br>
     * Character Types  
         <br>
-        <center><img src="./images/postgresql/character_types.PNG"></center>  
+        <center><img src="../images/postgresql/character_types.PNG"></center>  
         <br>
     * Date/Time Types  
         <br>
-        <center><img src="./images/postgresql/date&time_types.PNG"></center>  
+        <center><img src="../images/postgresql/date&time_types.PNG"></center>  
         <br>
     * Boolean Type  
         <br>
-        <center><img src="./images/postgresql/boolean_type.PNG"></center>  
+        <center><img src="../images/postgresql/boolean_type.PNG"></center>  
         <br>
