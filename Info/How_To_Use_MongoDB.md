@@ -11,7 +11,7 @@
    * JSON Object 형태의 한 개 이상의 key-value의 쌍으로 이루어진 데이터 구조로 구성
    * value에는 다른 document, array, document array가 포함될 수 있음  
        <br>
-       <center><img src="../images/mongodb/mongodb_document.PNG"></center>  
+       <center><img src="../images/mongodb/mongodb_document.png"></center>  
        <br>  
    * Document의 형태
       * 각 Document는 **_id**라는 고유한 값을 가짐
@@ -34,7 +34,7 @@
     * 0개 이상의 Collection들의 집합으로 구성되며 Collection은 0개 이상의 Document로 구성되고 Document는 1개 이상의 field로 구성
 
 6. RDBMS(MySQL) vs MongoDB
-    * Terms  
+    * Terms
         | **RDB(MySQL)** | **MongoDB** |
         |:--------:|:--------:|
         | Database | Database |
@@ -43,22 +43,19 @@
         | Column | Field |
         | Table Join | Embedded Documents & Linking |
         | Primary Key | Primary key (_id) |
-
     * Database Server
         | **RDB(MySQL)** | **MongoDB** |
         |:--------:|:--------:|
         | mysqld | mongod |
-
     * Database Client
         | **RDB(MySQL)** | **MongoDB** |
         |:--------:|:--------:|
         | mysql | mongo |
-
     * SQL
         || **RDB(MySQL)** | **MongoDB** |
         |:--------:|:--------:|:--------:|
         | Insert | insert into users("name", "city") values ("lee", "seoul") | db.users.insert({ name: "lee", city: "seoul" }) |
-        | Select | select * from users where name="lee" | db.users.find({ name: "lee" }) (find 뒤에 **.pretty()**를 붙이면 JSON이 Formatting되어 출력) |
+        | Select | select * from users where name="lee" | db.users.find({ name: "lee" }) (find 뒤에 ".pretty()"를 붙이면 JSON이 Formatting되어 출력) |
         | Update | update users set city="busan" where name="lee" | db.users.update({ name: "lee" }, {$set:{ city: "busan" }}) |
         | Delete | delete from users where name="lee" | db.users.remove({ name: "lee" }) |
 
