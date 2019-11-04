@@ -58,7 +58,7 @@
         || **RDB(MySQL)** | **MongoDB** |
         |:--------:|:--------:|:--------:|
         | Insert | insert into users("name", "city") values ("lee", "seoul") | db.users.insert({ name: "lee", city: "seoul" }) |
-        | Select | select * from users where name="lee" | db.users.find({ name: "lee" }) |
+        | Select | select * from users where name="lee" | db.users.find({ name: "lee" }) (find 뒤에 **.pretty()**를 붙이면 JSON이 Formatting되어 출력) |
         | Update | update users set city="busan" where name="lee" | db.users.update({ name: "lee" }, {$set:{ city: "busan" }}) |
         | Delete | delete from users where name="lee" | db.users.remove({ name: "lee" }) |
 
@@ -67,6 +67,23 @@
     * 인증 및 인가 측면에서 굉장히 위험하므로 인증 및 인가에 대한 Rule이 필요
     * 사용자를 추가한 후 사용자 외에는 접근이 불가능하도록 하는 방법이 있음
     * Database
+        | **Name** | **Description** |
+        |:--------:|:--------:|
+        | db | 현재 사용하고 있는 Database 출력 |
+        | db.stats() | 현재 사용하고 있는 Database 정보 출력 |
+        | show dbs | Database 리스트 확인 |
+        | use ${databaseName} | Database Switch 또는 생성 (존재하지 않을 경우) |
+        | db.dropDatabase() | Database 삭제 (use 명령어로 해당 Database로 Switch한 다음 실행해야 함) |
+        
+    * Collection
+        | **Name** | **Description** |
+        |:--------:|:--------:|
+        | db.createCollection("${collectionName}", {capped: true, size: 6142800, max: 10000}) | 'collectionName'의 이름을 가진 Collection 생성. capped: boolean type, true로 설정 시 활성화, capped collection이란 고정된 크기를 가진 Collection, 사이즈 초과 시 가장 오래된 데이터를 덮어 씀. size: collection의 최대 사이즈 (단위: byte) max: 해당 collection에 추가할 수 있는 최대 document 갯수 |
+        | db.${collectionName}.drop() | 현재 데이터베이스의 'collectionName' Collection을 제거 |
+        | db.${collectionName}.renameCollection{"${newCollectionName}"} | Collection 이름 수정 |
+        | db.${collectionName}.validate() | Collection 상태 보기 |
+        | show collections | Collection 리스트 확인 |
+
     * Database User
         | **Name** | **Description** |
         |:--------:|:--------:|
@@ -80,6 +97,25 @@
         | db.revokeRolesFromUser() | 사용자에게 부여한 Role 삭제 |
         | db.getUser() | 지정한 사용자의 정보 반환 |
         | db.getUsers() | Database에 관련된 모든 사용자의 정보 반환 |
+
+    * 비교 연산자
+        | **Name** | **Description** |
+        |:--------:|:--------:|
+        | $eq | 주어진 값과 일치하는 값 (equals) |
+        | $gt | 주어진 값보다 큰 값 (greater than) |
+        | $gte | 주어진 값보다 크거나 같은 값 (greater than or equals) |
+        | $lt | 주어진 값보다 작은 값 (less than) |
+        | $lte | 주어진 값보다 작거나 같은 값 (less than or equals) |
+        | $ne | 주어진 값과 일치하지 않는 값 (not equals) |
+        | $in | 주어진 배열 안에 속하는 값 |
+        | $nin | 주어진 배열 안에 속하지 않는 값 |
+
+    * 논리 연산자
+        * $or
+        * $and
+        * $not
+        * $nor
+        * ex) `db.articles.find({ $or: [{ "title" : "article01" }, { "writer" : "Alpha" }]})`
 
 
 8. 특징
